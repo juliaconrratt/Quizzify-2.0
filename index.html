@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzify</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        
+        <div id="menu-screen" class="screen">
+            <h1 class="logo-title"><span class="green-text">Quizz</span>ify</h1>
+            
+            <p id="menu-high-score" class="menu-high-score hidden"></p>
+
+            <div class="menu-buttons">
+                <button class="btn-primary" onclick="showScreen('playlist-screen')">Jogar</button>
+                <button class="btn-secondary" onclick="showScreen('tutorial-screen')">Tutorial</button>
+                <button class="btn-secondary" onclick="showScreen('credits-screen')">Créditos</button>
+            </div>
+            <p class="footer-text">Desenvolvido para fãs de música</p>
+        </div>
+
+        <div id="playlist-screen" class="screen hidden">
+            <header class="top-nav">
+                <button class="icon-btn" onclick="showScreen('menu-screen')">❮</button>
+                <h2 class="nav-title">Playlists</h2>
+                <div style="width: 24px;"></div>
+            </header>
+            
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="selectPlaylist('rock')">
+                    <div class="playlist-cover" style="background-color: #E22134;">🎸</div>
+                    <p>Clássicos do Rock</p>
+                </div>
+                <div class="playlist-card" onclick="selectPlaylist('br')">
+                    <div class="playlist-cover" style="background-color: #1DB954;">🇧🇷</div>
+                    <p>Brasilidades</p>
+                </div>
+                <div class="playlist-card" onclick="selectPlaylist('pop')">
+                    <div class="playlist-cover" style="background-color: #8A2BE2;">🎤</div>
+                    <p>Cultura Pop</p>
+                </div>
+                <div class="playlist-card" onclick="selectPlaylist('all')">
+                    <div class="playlist-cover" style="background: linear-gradient(45deg, #1DB954, #121212);">🔀</div>
+                    <p>Mix Aleatório</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tutorial-screen" class="screen hidden">
+            <header class="top-nav">
+                <button class="icon-btn" onclick="showScreen('menu-screen')">❮</button>
+                <h2 class="nav-title">Tutorial</h2>
+                <div style="width: 24px;"></div>
+            </header>
+            <div class="content-scroll">
+                <ul class="rules-list">
+                    <li>💚 Você começa com <strong>3 vidas</strong>.</li>
+                    <li>⏳ Você tem <strong>30 segundos</strong> para cada pergunta.</li>
+                    <li>❌ Errar tira <strong>10 segundos</strong> do relógio.</li>
+                    <li>💔 Dois erros na mesma pergunta ou tempo esgotado custam <strong>1 vida</strong>.</li>
+                    <li>🔥 Acertos seguidos aumentam seu <strong>Combo</strong> e multiplicam seus pontos!</li>
+                    <li>⚡ <strong>Power-ups:</strong> Use o "50/50" ou o "Congelar Tempo" uma vez por partida!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="credits-screen" class="screen hidden">
+            <header class="top-nav">
+                <button class="icon-btn" onclick="showScreen('menu-screen')">❮</button>
+                <h2 class="nav-title">Créditos</h2>
+                <div style="width: 24px;"></div>
+            </header>
+            <div class="content-scroll center-text">
+                <h1 class="logo-title small"><span class="green-text">Quizz</span>ify</h1>
+                <p><strong>Design e Conceito:</strong><br>Criador do Projeto</p>
+                <br>
+                <p><strong>Desenvolvimento:</strong><br>HTML, CSS e JavaScript</p>
+                <br>
+                <p><strong>Áudios e Imagens:</strong><br>Wikimedia Commons & Unsplash</p>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <header class="top-nav">
+                <button class="icon-btn" onclick="quitToMenu()">❮</button>
+                <h2 class="nav-title" id="game-playlist-title">Mix Aleatório</h2>
+                <div class="lives-display" id="lives-container">💚💚💚</div>
+            </header>
+
+            <div class="media-container">
+                <div id="album-cover" class="album-cover">🎵</div>
+                <div class="progress-bar-bg">
+                    <div id="timer-progress" class="progress-bar-fill"></div>
+                </div>
+                <div class="game-stats">
+                    <span id="time-text">0:30</span>
+                    <span id="score-text">Pts: 0</span>
+                </div>
+            </div>
+
+            <div class="powerups-bar">
+                <button id="btn-5050" class="powerup-btn" onclick="use5050()" title="Elimina 2 opções erradas">🌗 50/50</button>
+                <button id="btn-freeze" class="powerup-btn" onclick="useFreezeTime()" title="Para o relógio por 10s">❄️ Congelar</button>
+            </div>
+
+            <div id="question-area">
+                <h3 id="question-text">Carregando...</h3>
+                <div id="options-container">
+                    <button class="option-btn" onclick="checkAnswer(0)">Opção 1</button>
+                    <button class="option-btn" onclick="checkAnswer(1)">Opção 2</button>
+                    <button class="option-btn" onclick="checkAnswer(2)">Opção 3</button>
+                    <button class="option-btn" onclick="checkAnswer(3)">Opção 4</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen hidden">
+            <h1 id="end-title">Fim de Jogo</h1>
+            <div class="wrapped-card">
+                <h2 id="end-rank">Nível: Astro</h2>
+                <p class="final-score">Pontuação Final<br><span id="final-score-display" class="green-text">0</span></p>
+                <p id="end-message" class="pun-message">Sua performance foi um hit!</p>
+            </div>
+            <div class="menu-buttons">
+                <button class="btn-primary" onclick="shareScore()" style="background-color: #25D366; color: #FFF;">Compartilhar 📲</button>
+                <button class="btn-secondary" onclick="showScreen('playlist-screen')">Jogar Novamente</button>
+                <button class="btn-secondary" onclick="showScreen('menu-screen')">Voltar ao Menu</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
