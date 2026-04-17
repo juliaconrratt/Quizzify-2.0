@@ -1,6 +1,6 @@
 # Quizzify 🎵
 
-O Quizzify é um jogo em HTML interativo de perguntas e respostas focado em conhecimentos gerais sobre música. Com uma estética minimalista e em modo escuro, o design é fortemente inspirado no visual clássico do Spotify dos anos 2010. O foco principal do jogo é a experiência em celulares, possuindo um design responsivo, mas que se adapta perfeitamente a computadores.
+O Quizzify é um jogo em HTML interativo de perguntas e respostas focado em conhecimentos gerais sobre música. Com uma estética minimalista e em modo escuro, o design é fortemente inspirado no visual clássico do Spotify dos anos 2010. O foco principal do jogo é a experiência em celulares, possuindo um design responsivo, mas que se adapta perfeitamente a computadores. Este projeto foi desenvolvido como parte do aprendizado no curso **Solo Game Dev**, ministrado pelo professor **Henrique Andrade**, e contou com o auxílio de **Inteligência Artificial** para a estruturação de código e refinamento de lógica.
 
 ## Funcionalidades
 * **Mecânica de Tempo e Vidas**: O jogo atribui 30 segundos ao jogador para responder a cada pergunta, oferecendo um total de três vidas que são representadas por corações verdes. Respostas incorretas resultam na perda de uma vida e aplicam simultaneamente uma penalidade de 10 segundos no temporizador.
@@ -18,7 +18,7 @@ O Quizzify é um jogo em HTML interativo de perguntas e respostas focado em conh
 
 # English
 
-Quizzify is an interactive HTML trivia game focused on general music knowledge. Featuring a minimalist dark mode aesthetic, its design is heavily inspired by the classic 2010s Spotify look. The game's primary focus is the mobile experience, boasting a responsive design that also adapts perfectly to desktop computers.
+Quizzify is an interactive HTML trivia game focused on general music knowledge. Featuring a minimalist dark mode aesthetic, its design is heavily inspired by the classic 2010s Spotify look. The game's primary focus is the mobile experience, boasting a responsive design that also adapts perfectly to desktop computers. This project was developed as part of the **Solo Game Dev** course by Professor **Henrique Andrade**, with the assistance of **Artificial Intelligence** for code structuring and logic refinement.
 
 ## Features
 * **Time and Lives Mechanics**: The game gives the player 30 seconds to answer each question, offering a total of three lives represented by green hearts. Incorrect answers result in the loss of a life and simultaneously apply a 10-second penalty to the timer.
