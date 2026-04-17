@@ -478,7 +478,7 @@ function showWrappedScreen(isVictory) {
 
     if (score < 2000) {
         msgEl.innerText = "Você desafinou um pouco dessa vez. Que tal ensaiar mais um pouco e dar o play de novo?";
-    } else if (score < 4500) {
+    } else if (score < 3500) {
         msgEl.innerText = "Bom ritmo! Você está quase no tom perfeito, só falta masterizar os combos rápidos.";
     } else {
         msgEl.innerText = "Inacreditável! Você dominou as paradas da Billboard com respostas na velocidade da luz. Uma performance digna de Disco de Platina!";
